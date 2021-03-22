@@ -2,7 +2,18 @@
   <el-card :body-style="{ padding: '0px' }">
     <el-carousel height="200px">
       <el-carousel-item v-for="image in imageArray" :key="image">
-        <img :src="image" class="image" alt="carouse image">
+        <el-image :src="image">
+          <template #placeholder>
+            <div class="image-slot">
+              Loading<span class="dot">...</span>
+            </div>
+          </template>
+          <template #error>
+            <div class="image-slot">
+              <i class="el-icon-picture-outline"></i>
+            </div>
+          </template>
+        </el-image>
       </el-carousel-item>
     </el-carousel>
     <div style="padding: 14px;">
