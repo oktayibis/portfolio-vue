@@ -1,8 +1,8 @@
 <template>
   <el-card :body-style="{ padding: '0px' }">
-    <el-carousel height="150px">
+    <el-carousel height="200px">
       <el-carousel-item v-for="image in imageArray" :key="image">
-        <img :src="image" className="image">
+        <img :src="image" class="image" alt="carouse image">
       </el-carousel-item>
     </el-carousel>
     <div style="padding: 14px;">
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./src/costum-theme.scss";
+@import "../costum-theme";
 
 .time {
   font-size: 13px;

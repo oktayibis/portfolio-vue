@@ -1,0 +1,13 @@
+/* theme color */
+$--color-primary: #343f56;
+$--color-info: #e9896a;
+$--color-success: #387c6d;
+$--color-danger: #810000;
+$--color-light: #f8f5f1;
+
+/* icon font path, required */
+$--font-path: '~element-plus/lib/theme-chalk/fonts';
+$--font-family: 'Playfair Display', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "~element-plus/packages/theme-chalk/src/index";
