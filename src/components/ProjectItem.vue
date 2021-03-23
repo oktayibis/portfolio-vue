@@ -20,7 +20,9 @@
       <span>{{title}}</span>
       <div class="bottom">
         <time class="time">{{date}}</time>
-        <el-button type="text" class="button">More Info</el-button>
+        <router-link :to=goToDetail>
+          <el-button type="text" class="button">More Info</el-button>
+        </router-link>
       </div>
     </div>
   </el-card>
@@ -42,6 +44,14 @@ export default {
     date: {
       type: String,
       default: new Date().getFullYear()
+    },
+    id: {
+      type: String
+    }
+  },
+  computed: {
+    goToDetail () {
+      return '/projects/' + this.id
     }
   }
 }

@@ -1,9 +1,7 @@
 <template>
 <div class="contact">
 <div class="top">
-  <p class="text">You can contact me whenever you want and share whatever comes to your mind. You won't be able to handle every job alone, don't be afraid to ask for help.
-  </p>
-  <el-divider></el-divider>
+  <quotes>Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler</quotes>
   <h4>Contact me, let's solve the problem together.</h4>
 </div>
   <el-form ref="form" :model="form" label-width="120px">
@@ -36,8 +34,10 @@
 </template>
 
 <script>
+import Quotes from '@/components/Quotes'
 export default {
   name: 'Contact',
+  components: { Quotes },
   data () {
     return {
       form: {
@@ -62,18 +62,7 @@ export default {
 
 .contact {
   padding: 5% 10%;
+  color: $--color-primary;
 
-  .text {
-    letter-spacing: 0.12rem;
-    text-align: justify;
-    margin-bottom: 20px;
-  }
-  h4 {
-    letter-spacing: 0.12rem;
-    margin-bottom: 20px;
-    color: $--color-info;
-    text-align: center;
-
-  }
 }
 </style>

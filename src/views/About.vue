@@ -1,5 +1,8 @@
 <template>
   <div class="about">
+    <div class="top">
+      <quotes>Experience is the name everyone gives to their mistakes. – Oscar Wilde</quotes>
+    </div>
    <div class="desc">
      <h2>About me</h2>
      <p>
@@ -27,8 +30,9 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 */
 
+import Quotes from '@/components/Quotes'
 export default {
-
+  components: { Quotes },
   data () {
     return {
       values: [
@@ -84,13 +88,14 @@ export default {
 @import "./src/costum-theme.scss";
 
 .about {
-  padding:20%;
-  color: $--color-primary;
+  padding: 5% 10%;
   text-align: justify;
+  color: $--color-primary;
 
   p {
     line-height: 2;
     letter-spacing: 1.4px;
+
   }
 
   .skills {

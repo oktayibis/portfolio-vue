@@ -1,19 +1,26 @@
 <template>
-<div class="projects">
-  <el-row gutter="40" type="flex" justify="between">
-    <el-col class="fix-margin" :span="12" v-for="project in projects" :key="project.images" >
-      <project-item :image-array="project.images" :title="project.title" :date="project.date" />
-    </el-col>
-  </el-row>
-</div>
+  <div class="projects">
+    <div class="top">
+      <quotes>Before software can be reusable it first has to be usable. – Ralph Johnson</quotes>
+    </div>
+    <el-row :gutter="40" type="flex" justify="between">
+      <el-col class="fix-margin" :span="12" v-for="project in projects" :key="project.images">
+        <project-item :id="project.id" :image-array="project.images" :title="project.title" :date="project.date"/>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
 import ProjectItem from '@/components/ProjectItem'
+import Quotes from '@/components/Quotes'
 
 export default {
   name: 'Projects',
-  components: { ProjectItem },
+  components: {
+    ProjectItem,
+    Quotes
+  },
   computed: {
     projects () {
       return this.$store.getters['projects/getProjects']
@@ -27,10 +34,11 @@ export default {
 @import "./src/costum-theme.scss";
 
 .projects {
-  padding: 5% 10%;
+  padding: 4% 10%;
+  color: $--color-primary;
 
   .fix-margin {
-    margin: 3% 0;
+    margin: 1.5% 0;
   }
 }
 </style>
