@@ -10,7 +10,7 @@
           </template>
           <template #error>
             <div class="image-slot">
-              <i class="el-icon-picture-outline"></i>
+              <em class="el-icon-picture-outline"></em>
             </div>
           </template>
         </el-image>
