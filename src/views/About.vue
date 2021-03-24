@@ -26,11 +26,8 @@
 </template>
 
 <script>
-/*
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-*/
-
 import Quotes from '@/components/Quotes'
+
 export default {
   components: { Quotes },
   data () {
