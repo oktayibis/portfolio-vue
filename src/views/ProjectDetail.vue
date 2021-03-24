@@ -3,7 +3,7 @@
 <el-row :gutter="20">
 <el-col :span="24">
   <el-carousel type="card"  height="35vh">
-    <el-carousel-item v-for="image in project.images" :key="image">
+    <el-carousel-item v-for="image in project.imagesURL" :key="image">
       <el-image class="image" :src="image">
         <template #placeholder>
           <div class="image-slot">
@@ -22,34 +22,34 @@
   <el-col class="info-container" :span="24">
    <el-row align="middle" :gutter="20">
      <el-col :span="18">
-       <h2 class="title">{{project.title}}</h2>
+       <h2 class="title">{{project.projectTitle}}</h2>
      </el-col>
      <el-col :span="6">
        <div class="btn-container">
        <a :href="project.projectUrl" target="_blank">
          <el-button  :disabled="!project.projectUrl" type="info" >Github</el-button>
        </a>
-       <a :href="project.demoUrl" target="_blank">
-         <el-button  :disabled="!project.demoUrl" type="primary">Demo</el-button>
+       <a :href="project.projectDemo" target="_blank">
+         <el-button  :disabled="!project.projectDemo" type="primary">Demo</el-button>
        </a>
      </div>
      </el-col>
    </el-row>
     <p class="subtitle">{{project.date}}</p>
-    <p class="content">{{project.content}}</p>
+    <p class="content">{{project.projectContent}}</p>
     <el-divider></el-divider>
     <p class="skills">
       <span class="badge">Skills: </span>
-      <span class="badge-item" v-for="(tag, index) in project.tags" :key="tag">{{tag}}
-            <span class="separator" v-if="index !== (project.tags.length-1)">|</span>
+      <span class="badge-item" v-for="(tag, index) in project.projectTags" :key="tag">{{tag}}
+            <span class="separator" v-if="index !== (project.projectTags.length-1)">|</span>
       </span>
 
     </p>
     <el-divider></el-divider>
     <p class="teams">
       <span class="badge">Team Members: </span>
-      <span class="badge-item" v-for="(member, index) in project.teamMembers" :key="member">{{member}}
-           <span class="separator" v-if="index !== (project.teamMembers.length-1)">|</span>
+      <span class="badge-item" v-for="(member, index) in project.projectTeam" :key="member">{{member}}
+           <span class="separator" v-if="index !== (project.projectTeam.length-1)">|</span>
       </span>
     </p>
     <el-divider></el-divider>

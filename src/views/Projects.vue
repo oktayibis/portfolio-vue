@@ -4,8 +4,8 @@
       <quotes>Before software can be reusable it first has to be usable. – Ralph Johnson</quotes>
     </div>
     <el-row :gutter="40" type="flex" justify="between">
-      <el-col class="fix-margin" :span="12" v-for="project in projects" :key="project.images">
-        <project-item :id="project.id" :image-array="project.images" :title="project.title" :date="project.date"/>
+      <el-col class="fix-margin" :span="12" v-for="project in projects" :key="project.id">
+        <project-item :id="project.id" :image-array="project.imagesURL" :title="project.projectTitle" :date="project.date"/>
       </el-col>
     </el-row>
   </div>

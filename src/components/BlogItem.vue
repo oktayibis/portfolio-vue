@@ -2,18 +2,18 @@
   <el-card>
     <div class="card-container">
       <div class="card-header">
-        <h4>{{blog.date}}</h4>
+        <h4>{{blog.timeStamp}}</h4>
         <div class="tags">
-          <el-tag class="tag" v-for="tag in blog.tags" :key="tag">{{tag}}</el-tag>
+          <el-tag class="tag" v-for="tag in blog.blogTags" :key="tag">{{tag}}</el-tag>
         </div>
       </div>
       <h2>
         <router-link :to="createLink">
-          {{blog.title}}
+          {{blog.blogTitle}}
         </router-link>
       </h2>
 
-      <q>{{blog.description}}</q>
+      <q>{{blog.blogSubTitle}}</q>
     </div>
   </el-card>
 </template>

@@ -1,8 +1,19 @@
 <template>
 <section class="blog-detail">
   <el-row :gutter="20">
-    <el-col class="title" :span="24"><h2>{{blog.title}}</h2></el-col>
-    <el-col class="description" :span="20"> <h5>{{blog.description}}</h5> </el-col>
+    <el-col class="title" :span="24">
+      <h2>{{blog.blogTitle}}</h2>
+     <el-row :gutter="40">
+       <el-col :span="18">
+         <p class="date">{{blog.timeStamp}}</p>
+       </el-col>
+       <el-col :span="6">
+         <el-tag type="success" size="mini" class="tag" v-for="tag in blog.blogTags" :key="tag">{{tag}}</el-tag>
+       </el-col>
+     </el-row>
+    </el-col>
+
+    <el-col class="description" :span="20"> <h5>{{blog.blogSubTitle}}</h5> </el-col>
 
     <el-col class="image-container" :span="24">
       <el-image fit="contain" class="image" src="http://duruthemes.com/demo/html/lonon/light/images/post.jpg">
@@ -19,7 +30,7 @@
       </el-image>
     </el-col>
     <el-col class="content" :span="24">
-      <p v-html="blog.content"></p>
+      <p v-html="blog.blogContent"></p>
     </el-col>
   </el-row>
 </section>
@@ -74,6 +85,10 @@ export default {
 
   .content {
     margin-top: 1rem;
+  }
+
+  .tag {
+    margin: 10px 5px 0 5px;
   }
 
 }
