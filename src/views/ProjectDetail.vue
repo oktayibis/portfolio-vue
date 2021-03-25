@@ -1,10 +1,10 @@
 <template>
 <section class="project-detail">
-<el-row :gutter="20">
+<el-row v-loading="isLoading" :gutter="20">
 <el-col :span="24">
-  <el-carousel type="card"  height="35vh">
+  <el-carousel type="card"  height="30vh">
     <el-carousel-item v-for="image in project.imagesURL" :key="image">
-      <el-image class="image" :src="image">
+      <el-image  class="image" fit="contain" :src="image">
         <template #placeholder>
           <div class="image-slot">
             Loading<span class="dot">...</span>
@@ -52,8 +52,6 @@
            <span class="separator" v-if="index !== (project.projectTeam.length-1)">|</span>
       </span>
     </p>
-    <el-divider></el-divider>
-
   </el-col>
 
 </el-row>
@@ -63,18 +61,32 @@
 <script>
 export default {
   created () {
-    this.project = this.$store.getters['projects/getProjects'].find(p => p.id === this.projectId)
+    this.fetchProject()
   },
   name: 'ProjectDetail',
   data () {
     return {
-      project: {}
+      project: {},
+      isLoading: false
     }
   },
   props: {
     projectId: {
       type: String,
       default: 'Not Found'
+    }
+  },
+  methods: {
+    async fetchProject () {
+      this.isLoading = true
+      try {
+        await this.$store.dispatch('projects/getProjectById', this.projectId)
+        this.project = this.$store.getters['projects/getSelectedProject']
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 }
@@ -85,15 +97,15 @@ export default {
 .project-detail {
   padding: 0 5%;
   .image {
+    width: 100%;
     height: 100%;
-    width: 25vw;
     object-fit: contain;
     border: 1px solid $--color-light;
     border-radius: 10px;
   }
 
   .info-container {
-    line-height: 2;
+    line-height: 1.5;
     letter-spacing: 1.1px;
 
     .badge {

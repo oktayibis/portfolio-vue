@@ -55,17 +55,14 @@ export default {
 @import "./src/costum-theme.scss";
 .menu-container {
   padding: 45px 30px;
+  position: -webkit-sticky;
   position: sticky;
-  top: 10px;
-  overflow-y: scroll;
-  z-index: 1001;
+  top: 0;
   background: white;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
-  -webkit-box-shadow: 0 0 5px rgb(0, 0, 0 / 5%);
-  box-shadow: 0 0 5px rgb(0, 0, 0 / 5%);
-  height: 900px;
+  min-height: 900px;
 
   .logo-container {
     text-align: center;

@@ -21,9 +21,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .border-radius-left {
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+  position: sticky;
+  top: 20px;
 
 }
 </style>

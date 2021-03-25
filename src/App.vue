@@ -39,12 +39,13 @@ body {
 .container {
   margin: auto;
   max-width: 1366px;
-  height: 900px;
   background-color: $--color-light;
-  -webkit-box-shadow: 0 0 47px -16px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0 0 47px -16px rgba(0,0,0,0.75);
-  box-shadow: 0 0 47px -16px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0 0 47px -16px rgba(102, 99, 99, 0.75);
+  -moz-box-shadow: 0 0 47px -16px rgba(83, 81, 81, 0.75);
+  box-shadow: 0 0 47px -16px rgba(115, 115, 115, 0.75);
   border-radius: 10px;
+  height: 100%;
+
 }
 
 .route-enter-from {

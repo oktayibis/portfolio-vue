@@ -14,7 +14,6 @@ export default {
 section {
   padding-top: 30px;
   padding-bottom: 30px;
-  clear: both;
   width: 100%;
   display: block;
   background: #fff;

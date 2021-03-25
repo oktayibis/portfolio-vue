@@ -1,6 +1,6 @@
 <template>
 <section class="blog-detail">
-  <el-row :gutter="20">
+  <el-row v-loading="isLoading" :gutter="20">
     <el-col class="title" :span="24">
       <h2>{{blog.blogTitle}}</h2>
      <el-row :gutter="40">
@@ -16,7 +16,7 @@
     <el-col class="description" :span="20"> <h5>{{blog.blogSubTitle}}</h5> </el-col>
 
     <el-col class="image-container" :span="24">
-      <el-image fit="contain" class="image" src="http://duruthemes.com/demo/html/lonon/light/images/post.jpg">
+      <el-image fit="contain" class="image" :src="blog.blogUrl">
         <template #placeholder>
           <div class="image-slot">
             Loading<span class="dot">...</span>
@@ -37,9 +37,11 @@
 </template>
 
 <script>
+import Blog from '@/classes/Blog'
+
 export default {
   created () {
-    this.blog = this.$store.getters['blogs/getBlogs'].find(b => b.id === this.blogId)
+    this.loadBlog()
   },
   name: 'BlogDetail',
   props: {
@@ -49,7 +51,27 @@ export default {
   },
   data () {
     return {
-      blog: {}
+      blog: new Blog({
+        blogTitle: '',
+        blogSubTitle: '',
+        blogUrl: '',
+        blogContent: '',
+        blogTags: []
+      }),
+      isLoading: false
+    }
+  },
+  methods: {
+    async loadBlog () {
+      this.isLoading = true
+      try {
+        await this.$store.dispatch('blogs/getBlogById', this.blogId)
+        this.blog = this.$store.getters['blogs/getSelectedBlog']
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 }
@@ -79,7 +101,7 @@ export default {
 
   .image-container {
     text-align: center;
-    max-height: 30vh;
+    max-height: 20vh;
     border-radius: 10px;
   }
 

@@ -3,9 +3,9 @@
     <div class="top">
       <quotes>Before software can be reusable it first has to be usable. – Ralph Johnson</quotes>
     </div>
-    <el-row :gutter="40" type="flex" justify="between">
+    <el-row v-loading="isLoading" :gutter="40" type="flex" justify="between">
       <el-col class="fix-margin" :span="12" v-for="project in projects" :key="project.id">
-        <project-item :id="project.id" :image-array="project.imagesURL" :title="project.projectTitle" :date="project.date"/>
+        <project-item :id="project.id" :image-array="project.imagesURL" :title="project.projectTitle" />
       </el-col>
     </el-row>
   </div>
@@ -21,9 +21,29 @@ export default {
     ProjectItem,
     Quotes
   },
+  created () {
+    this.loadProjects()
+  },
+  data () {
+    return {
+      isLoading: false
+    }
+  },
   computed: {
     projects () {
       return this.$store.getters['projects/getProjects']
+    }
+  },
+  methods: {
+    async loadProjects () {
+      this.isLoading = true
+      try {
+        await this.$store.dispatch('projects/getAllProject')
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 
