@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store'
 
 const routes = [
   {
@@ -35,6 +36,31 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: () => import(/* webpackChunkName: "about" */ '../views/Contact.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/admin/Login.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "about" */ '../views/admin/AdminLanding.vue'),
+    meta: { auth: true },
+    children: [
+      {
+        path: '/add-blog',
+        name: 'admin-blog',
+        meta: { auth: true },
+        component: () => import('../views/admin/AddBlog')
+      },
+      {
+        path: '/add-project',
+        name: 'admin-project',
+        meta: { auth: true },
+        component: () => import('../views/admin/AddProject')
+      }
+    ]
   }
 
 ]
@@ -42,6 +68,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth) {
+    if (store.getters.authStatus) {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
