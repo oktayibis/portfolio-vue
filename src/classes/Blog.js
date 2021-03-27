@@ -1,4 +1,5 @@
 class Blog {
+  /** @constructor */
   constructor ({ id, blogTitle, blogSubTitle, blogUrl, blogContent, blogTags }) {
     this.id = id
     this.blogTitle = blogTitle

@@ -34,6 +34,20 @@ const actions = {
     } else {
       throw new Error('Project could not found!')
     }
+  },
+
+  addProject (context, project) {
+    projectsRef.add(project)
+      .then(response => {
+        const payload = new Project({
+          id: response.id,
+          ...project
+        })
+        context.commit('addProject', payload)
+      })
+      .catch(err => {
+        throw new Error(err)
+      })
   }
 }
 

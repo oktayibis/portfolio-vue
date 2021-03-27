@@ -1,43 +1,28 @@
 <template>
 <div class="landing-container">
   <BaseContainer>
-    <h2>My Messages</h2>
-    <message-item v-for="message in getMessages" :message="message" :key="message.id"></message-item>
+    <el-row justify="space-between">
+      <router-link to="/admin/">
+        <el-button>Messages</el-button>
+      </router-link>
+      <router-link to="add-project">
+        <el-button>Add Project</el-button>
+      </router-link>
+      <router-link to="add-blog">
+        <el-button>Add Blog</el-button>
+      </router-link>
+    </el-row>
+    <router-view></router-view>
   </BaseContainer>
 </div>
 </template>
 
 <script>
 import BaseContainer from '@/UI/BaseContainer'
-import MessageItem from '@/components/MessageItem'
 export default {
   name: 'AdminLanding',
-  components: { MessageItem, BaseContainer },
-  created () {
-    this.loadMessages()
-  },
-  data () {
-    return {
-      isLoading: false
-    }
-  },
-  computed: {
-    getMessages () {
-      return this.$store.getters['messages/getMessages']
-    }
-  },
-  methods: {
-    async loadMessages () {
-      this.isLoading = true
-      try {
-        this.$store.dispatch('messages/getMessages')
-      } catch (e) {
-        this.$message.error(e.message)
-      } finally {
-        this.isLoading = false
-      }
-    }
-  }
+  components: { BaseContainer }
+
 }
 </script>
 

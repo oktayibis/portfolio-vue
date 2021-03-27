@@ -5,6 +5,9 @@ const mutations = {
   },
   setSelectedBlog (state, payload) {
     state.selectedBlog = payload
+  },
+  addBlog (state, payload) {
+    state.blogs.push(payload)
   }
 }
 

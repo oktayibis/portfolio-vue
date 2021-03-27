@@ -1,5 +1,5 @@
 <template>
-<section class="blog-detail">
+<div class="blog-detail">
   <el-row v-loading="isLoading" :gutter="20">
     <el-col class="title" :span="24">
       <h2>{{blog.blogTitle}}</h2>
@@ -30,10 +30,10 @@
       </el-image>
     </el-col>
     <el-col class="content" :span="24">
-      <p v-html="blog.blogContent"></p>
+      <div v-html="blog.blogContent"></div>
     </el-col>
   </el-row>
-</section>
+</div>
 </template>
 
 <script>

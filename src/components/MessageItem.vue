@@ -1,5 +1,5 @@
 <template>
-<div class="message-container">
+<div>
   <el-card>
     <el-row :gutter="20">
       <el-col :span="5">
@@ -51,11 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-.message-container {
-
-}
-
-</style>

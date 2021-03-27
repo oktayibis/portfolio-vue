@@ -11,6 +11,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^3.0.0-3",
+    "@vueup/vue-quill": "^1.0.0-alpha.12",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.35",
     "firebase": "^8.3.1",

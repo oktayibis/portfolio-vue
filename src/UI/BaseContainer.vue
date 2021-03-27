@@ -1,7 +1,7 @@
 <template>
-<section>
+<div>
   <slot></slot>
-</section>
+</div>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
+div {
   padding-top: 30px;
   padding-bottom: 30px;
   width: 100%;

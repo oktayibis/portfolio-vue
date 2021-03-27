@@ -28,6 +28,20 @@ const actions = {
     } else {
       throw new Error('There is no blog found!')
     }
+  },
+  async addBlog (context, blogPost) {
+    const payload = { ...blogPost }
+    postRef.add(payload)
+      .then(response => {
+        const blog = new Blog({
+          id: response.id,
+          ...blogPost
+        })
+        context.commit('addBlog', blog)
+      })
+      .catch(err => {
+        throw new Error(err)
+      })
   }
 }
 

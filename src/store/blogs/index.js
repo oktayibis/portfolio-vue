@@ -7,7 +7,7 @@ export default {
 
   state () {
     return {
-      blogs: null,
+      blogs: [],
       selectedBlog: null
     }
   },

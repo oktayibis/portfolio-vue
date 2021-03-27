@@ -17,7 +17,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import "./src/costum-theme.scss";
 
 * {
@@ -30,7 +29,6 @@ html {
 
 body {
   margin: 10px auto;
-  font-size: 15px;
   line-height: 1.5em;
   font-weight: 400;
   color: #999;
