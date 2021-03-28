@@ -1,7 +1,7 @@
 <template>
 <div class="landing-container">
   <BaseContainer>
-    <el-row justify="space-between">
+    <el-row type="flex" justify="center">
       <router-link to="/admin/">
         <el-button>Messages</el-button>
       </router-link>
@@ -29,5 +29,9 @@ export default {
 <style lang="scss" scoped>
 .landing-container {
   padding: 1% 5%;
+
+  a {
+    margin: 0 5px;
+  }
 }
 </style>
