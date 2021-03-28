@@ -21,8 +21,8 @@ export default {
   data () {
     return {
       form: {
-        email: 'oktayibis@gmail.com',
-        password: 'Ok3648128'
+        email: '',
+        password: ''
       },
       rules: {
         email: { required: true, message: 'Please enter your email', trigger: 'blur' },
