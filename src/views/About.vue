@@ -54,7 +54,7 @@ export default {
           point: 4
         },
         {
-          name: 'AngularJS',
+          name: 'Angular 6+',
           point: 4.5
         },
         {
